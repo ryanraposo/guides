@@ -1,15 +1,15 @@
 # Checklist
 
-- [ ]  [Backup important folders & files](#1-backup-your-pc)
-- [ ]  [Retrieve your Windows license key](#b-license-key)
-- [ ]  [Deregister the Windows license key](#b-license-key)
-- [ ]  [Create a Windows 10 installation USB drive](#2-create-bootable-windows-10-usb)
-- [ ]  [Install the SSD (SN850X) in the M.2 slot](#3-install-new-ssd-sn850x-in-adams-pc)
-- [ ]  [Configure BIOS (AHCI mode)](#4-configure-bios)
-- [ ]  [Configure BIOS (USB -> SSD boot order)](#4-configure-bios)
-- [ ]  [Boot from the Windows 10 USB drive and install Windows](#5-install-windows-10)
-- [ ]  [Activate Windows using the saved license key](#5-install-windows-10)
-- [ ]  [Upgrade to Windows 11](#6-upgrade-to-windows-11)
+- [ ] [Backup important folders & files](#1-backup-your-pc)
+- [ ] [Retrieve your Windows license key](#b-license-key)
+- [ ] [Deregister the Windows license key](#b-license-key)
+- [ ] [Create a Windows 10 installation USB drive](#2-create-bootable-windows-10-usb)
+- [ ] [Install the SSD (SN850X) in the M.2 slot](#3-install-new-ssd-sn850x-in-adams-pc)
+- [ ] [Configure BIOS (AHCI mode)](#4-configure-bios)
+- [ ] [Configure BIOS (USB -> SSD boot order)](#4-configure-bios)
+- [ ] [Boot from the Windows 10 USB drive and install Windows](#5-install-windows-10)
+- [ ] [Activate Windows using the saved license key](#5-install-windows-10)
+- [ ] [Upgrade to Windows 11](#6-upgrade-to-windows-11)
 
 ---
 # 1. Backup Your PC
