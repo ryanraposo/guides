@@ -47,7 +47,8 @@ slmgr /cpky
 - Disconnect and remove any existing drives that need to be replaced or removed.
 - Insert the SN850X SSD into the M.2 slot and secure it with the provided screw.
 - The M.2 slots are behind sinks:
-- ![m2](/guides/M2.jpeg)
+
+![m2](https://i.ibb.co/GM8S2Tv/M2.jpg)
 
 # 4. Configure BIOS
 
