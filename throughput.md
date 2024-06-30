@@ -1,3 +1,5 @@
+## Throughput
+
 ### NVMe (Non-Volatile Memory Express)
 - **PCIe 3.0 x4**: Up to 32 Gb/s (4 GB/s)
 - **PCIe 4.0 x4**: Up to 64 Gb/s (8 GB/s)
