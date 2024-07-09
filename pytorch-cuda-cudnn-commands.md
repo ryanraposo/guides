@@ -35,12 +35,8 @@ sudo apt-get autoclean
 |1.8.1|11.1|8.0.5|`sudo apt-get install cuda-11-1 libcudnn8=8.0.5.39-1+cuda11.1 libcudnn8-dev=8.0.5.39-1+cuda11.1 && pip install torch==1.8.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html`|3.7|
 |1.8.0|11.1|8.0.5|`sudo apt-get install cuda-11-1 libcudnn8=8.0.5.39-1+cuda11.1 libcudnn8-dev=8.0.5.39-1+cuda11.1 && pip install torch==1.8.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html`|3.7|
 
-<!-- TOC -->
+## Sources
 
-- [PyTorch, CUDA, cuDNN, Commands!](#pytorch-cuda-cudnn-commands)
-    - [Table of Contents](#table-of-contents)
-    - [Uninstall](#uninstall)
-    - [Install](#install)
-    - [Sources](#sources)
-
-<!-- /TOC -->
+- [NVIDIA CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/)
+- [PyTorch Installation Guide](https://pytorch.org/get-started/locally/)
+- [cuDNN Installation Guide](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html)
