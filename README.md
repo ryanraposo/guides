@@ -1,7 +1,11 @@
+---
+layout: default
+---
+
 # guides
 
-1. [For Dad](/fordad.md)
-2. [Throughput](/throughput.md)
-3. [ShotCut (Windows)](/shotcut-windows.md)
-4. [ShotCut (Ubuntu)](/shotcut-ubuntu.md)
-5. [PyTorch, CUDA, cuDNN, Commands!](/pytorch-cuda-cudnn-commands.md)
+1. [For Dad](/markdown/fordad.md)
+2. [Throughput](/markdown/throughput.md)
+3. [ShotCut (Windows)](/markdown/shotcut-windows.md)
+4. [ShotCut (Ubuntu)](/markdown/shotcut-ubuntu.md)
+5. [PyTorch, CUDA, cuDNN, Commands!](/markdown/pytorch-cuda-cudnn-commands.md)

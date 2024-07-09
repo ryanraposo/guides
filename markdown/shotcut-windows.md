@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Shotcut (Windows)
 
 ## Installing Shotcut on Windows 10

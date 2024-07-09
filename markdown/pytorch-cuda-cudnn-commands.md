@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # PyTorch, CUDA, cuDNN, Commands!
 
 > This guide assumes Ubuntu.
