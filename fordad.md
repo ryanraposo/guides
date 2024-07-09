@@ -1,3 +1,5 @@
+> This guide assumes dad.
+
 # Checklist
 
 - [ ] [Backup important folders & files](#1-backup-your-pc)
