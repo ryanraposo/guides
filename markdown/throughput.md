@@ -1,8 +1,3 @@
----
-layout: default
-title: Throughput
----
-
 ## Throughput
 
 ### NVMe (Non-Volatile Memory Express)

@@ -1,8 +1,3 @@
----
-layout: default
-title: PyTorch, CUDA, cuDNN, Commands!
----
-
 # PyTorch, CUDA, cuDNN, Commands!
 
 > This guide assumes Ubuntu.

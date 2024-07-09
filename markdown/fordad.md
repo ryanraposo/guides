@@ -1,8 +1,3 @@
----
-layout: default
-title: For Dad
----
-
 # For Dad
 
 > This guide assumes dad.

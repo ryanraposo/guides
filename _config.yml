@@ -1,4 +1,0 @@
-markdown: kramdown
-highlighter: rouge
-include:
-  - _includes

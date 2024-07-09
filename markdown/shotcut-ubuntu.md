@@ -1,8 +1,3 @@
----
-layout: default
-title: Shotcut (Ubuntu)
----
-
 # Shotcut (Ubuntu)
 
 ## Installing Shotcut on Ubuntu 24.04

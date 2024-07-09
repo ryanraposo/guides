@@ -1,8 +1,3 @@
----
-layout: default
-title: Shotcut (Ubuntu)
----
-
 # Shotcut (Windows)
 
 ## Installing Shotcut on Windows 10
