@@ -55,6 +55,17 @@ ENV_NAME="torch_$PYTORCH_VERSION"
 
 echo "Creating Miniconda environment for PyTorch $PYTORCH_VERSION..."
 
+eval "$(~/miniconda3/bin/conda shell.bash hook)"
+
+echo "Adding NVIDIA package repositories and keys..."
+add_nvidia_repo() {
+    wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
+    sudo dpkg -i cuda-keyring_1.0-1_all.deb
+    sudo apt-get update
+}
+
+add_nvidia_repo
+
 if [[ "$PYTORCH_VERSION" == "2.1.0" ]]; then
     conda create -n $ENV_NAME python=3.10 -y
     conda activate $ENV_NAME
