@@ -1,9 +1,7 @@
 # PyTorch, CUDA, cuDNN, Commands!
 
-> This guide assumes Ubuntu.
-
 ```
-"table nice, minitorch.sh nicer"
+"table nice, minitorch.sh nicer. ubuntu ok."
   /
 🧌
 ```
