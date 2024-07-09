@@ -1,5 +1,6 @@
 ---
 layout: default
+title: For Dad
 ---
 
 # For Dad
