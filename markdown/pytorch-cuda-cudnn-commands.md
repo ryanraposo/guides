@@ -40,7 +40,7 @@ sudo apt-get autoclean
 |1.8.1|11.1|8.0.5|`sudo apt-get install cuda-11-1 libcudnn8=8.0.5.39-1+cuda11.1 libcudnn8-dev=8.0.5.39-1+cuda11.1 && pip install torch==1.8.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html`|3.7|
 |1.8.0|11.1|8.0.5|`sudo apt-get install cuda-11-1 libcudnn8=8.0.5.39-1+cuda11.1 libcudnn8-dev=8.0.5.39-1+cuda11.1 && pip install torch==1.8.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html`|3.7|
 
-### minitorch.sh
+## minitorch.sh
 
 ```bash
 #!/bin/bash
