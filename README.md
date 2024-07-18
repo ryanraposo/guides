@@ -4,3 +4,4 @@
 4. [ShotCut (Ubuntu)](/markdown/shotcut-ubuntu.md)
 5. [cuditbe](/markdown/cuditbe.md)
 6. [VLC Finesse](/markdown/vlc-finesse.md)
+7. [hubd](/markdown/hubd.md)
