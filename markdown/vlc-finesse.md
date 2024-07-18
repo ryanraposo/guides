@@ -2,6 +2,12 @@
 
 Auto enable VLC extensions in the View menu.
 
+## Install xdotool
+
+```bash
+sudo apt install xdotool
+```
+
 ### Locate the VLC binary:
 
 ```bash
