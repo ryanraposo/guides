@@ -1,8 +1,8 @@
-# cuditbe
+## cuditbe
 
 Verifies Nvidia drivers, CUDA, and cuDNN reliably in linux.
 
-## Script
+### Script
 
 ```bash
 #!/bin/bash

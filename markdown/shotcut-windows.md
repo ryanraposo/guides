@@ -1,6 +1,6 @@
-# Shotcut (Windows)
+## Shotcut (Windows)
 
-## Installing Shotcut on Windows 10
+### Installing Shotcut on Windows 10
 1. **Download Shotcut:**
    - Visit the [Shotcut download page](https://shotcut.org/download/).
    - Download the Windows installer.
@@ -9,7 +9,7 @@
    - Run the downloaded installer.
    - Follow the installation prompts to complete the setup.
 
-## Transferring Videos from iPhone to Windows 10
+### Transferring Videos from iPhone to Windows 10
 1. **Using USB Cable:**
    - Connect your iPhone to your Windows 10 PC using a USB cable.
    - Open the Photos app or File Explorer.
@@ -21,7 +21,7 @@
    - Sign in with your Apple ID and enable iCloud Drive.
    - Access your videos from the iCloud Drive folder on your PC.
 
-## Editing Workflow in Shotcut
+### Editing Workflow in Shotcut
 1. **Import Videos:**
    - Open Shotcut and click on `Open File` to import your videos.
 
