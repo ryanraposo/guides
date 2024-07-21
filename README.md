@@ -5,3 +5,4 @@
 5. [cuditbe](/markdown/cuditbe.md)
 6. [VLC Finesse](/markdown/vlc-finesse.md)
 7. [hubd](/markdown/hubd.md)
+8. [mack](/markdown/mack.md)
