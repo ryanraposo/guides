@@ -1,3 +1,4 @@
+```bash
 #!/bin/bash
 
 interface="eth0"  # Replace with your network interface name
@@ -32,3 +33,4 @@ while true; do
         echo "Connection failed, retrying..."
     fi
 done
+```
