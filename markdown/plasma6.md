@@ -1,5 +1,3 @@
-Here’s an updated version with consistent headings, and I’ve added the subsections of “Build KDE” to the main Table of Contents.
-
 ## plasma6
 
 > This guide assumes Ubuntu 24.04
@@ -75,6 +73,7 @@ Here’s an updated version with consistent headings, and I’ve added the subse
   ```
 
 ### 4. Clone and Setup `kdesrc-build`
+
 - Clone the `kdesrc-build` repository into your home directory:
 
   ```bash
@@ -131,7 +130,7 @@ It isn't installed with `workspace`, but I want `Yakuake` so I add it below and 
 
 #### Optional Modules
 
-These can be included as shown in the command above:
+These can be included in the same way:
 
 - **krunner**: Powerful search and command execution from the desktop.
 - **systemsettings**: The main configuration interface for KDE.
