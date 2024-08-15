@@ -1,4 +1,4 @@
-[guides](https://github.io/ryanraposo/guides)
+[guides](https://ryanraposo.github.io/guides/)
 
 1. [For Dad](/markdown/fordad.md)
 2. [Throughput](/markdown/throughput.md)
