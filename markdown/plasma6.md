@@ -24,6 +24,7 @@
 ### 1. Install Required Packages
 
 - Install necessary build dependencies:
+
   ```bash
   sudo apt update
   sudo apt install cmake extra-cmake-modules git build-essential libsecret-1-dev libxapian-dev qtkeychain-qt6-dev libqt6keychain1 libsasl2-dev kirigami2-dev
@@ -62,6 +63,7 @@
 
 ### 4. Clone and Setup `kdesrc-build`
 - Clone the `kdesrc-build` repository into your home directory:
+
   ```bash
   git clone https://invent.kde.org/sdk/kdesrc-build.git ~/kdesrc-build
   cd ~/kdesrc-build
@@ -69,14 +71,18 @@
   ```
 
 ### 5. Create the Installation Directory
+
 - Create the installation directory:
+
   ```bash
   sudo mkdir /opt/plasma6
   sudo chown -R $USER:$USER /opt/plasma6
   ```
 
 ### 6. Configure `kdesrc-buildrc`
+
 - Create or overwrite the contents of `~/kdesrc-build/kdesrc-buildrc`:
+
   ```bash
   cat << EOF > ~/kdesrc-build/kdesrc-buildrc
   global
@@ -195,9 +201,9 @@
 
 - Resume building:
 
-```bash
-./kdesrc-build --rc-file=~/repos/kdesrc-build/kdesrc-buildrc --resume --no-src
-```
+  ```bash
+  ./kdesrc-build --rc-file=~/repos/kdesrc-build/kdesrc-buildrc --resume --no-src
+  ```
 
 ### 8. Create a Startup Script
 - Create `/opt/plasma6/bin/start-kde6`:
