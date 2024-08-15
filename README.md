@@ -7,3 +7,4 @@
 7. [hubd](/markdown/hubd.md)
 8. [mack](/markdown/mack.md)
 9. [last](/markdown/last.md)
+10. [plasma6](/markdown/plasma6.md)
