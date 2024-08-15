@@ -10,28 +10,36 @@
 ```
 
 ### Table of Contents
-1. [Install Qt 6.7.2](#1-install-qt-672)
-2. [Update PATH and Environment Variables](#2-update-path-and-environment-variables)
-3. [Clone and Setup `kdesrc-build`](#3-clone-and-setup-kdesrc-build)
-4. [Create the Installation Directory](#4-create-the-installation-directory)
-5. [Configure `kdesrc-buildrc`](#5-configure-kdesrc-buildrc)
-6. [Install Required Packages](#6-install-required-packages)
+1. [Install Required Packages](#1-install-required-packages)
+2. [Install Qt 6.7.2](#2-install-qt-672)
+3. [Update PATH and Environment Variables](#3-update-path-and-environment-variables)
+4. [Clone and Setup `kdesrc-build`](#4-clone-and-setup-kdesrc-build)
+5. [Create the Installation Directory](#5-create-the-installation-directory)
+6. [Configure `kdesrc-buildrc`](#6-configure-kdesrc-buildrc)
 7. [Build KDE](#7-build-kde)
 8. [Create a Startup Script](#8-create-a-startup-script)
 9. [Add a Desktop Entry to SDDM](#9-add-a-desktop-entry-to-sddm)
 10. [Start KDE 6](#10-start-kde-6)
 
-### 1. Install Qt 6.7.2
+### 1. Install Required Packages
+
+- Install necessary build dependencies:
+  ```bash
+  sudo apt update
+  sudo apt install cmake extra-cmake-modules git build-essential
+  ```
+
+### 2. Install Qt 6.7.2
 
 1. **Remove Existing Qt Installation** (If Needed):
-   - If you need to get rid of an old Qt installation, run:
+   - If you need to remove an old Qt installation, run:
      ```bash
      sudo rm -rf /opt/qt
      ```
-   - **Heads up**: This command will zap everything in `/opt/qt`. Make sure that directory is ready to be erased!
+   - **Heads up**: This command will delete everything in `/opt/qt`. Make sure that directory is ready to be erased!
 
 2. **Install Qt**:
-   - Grab Qt from the [Qt Online Installer](https://www.qt.io/download-qt-installer) and install it to `/opt/qt`.
+   - Download Qt using the [Qt Online Installer](https://www.qt.io/download-qt-installer) and install it to `/opt/qt`.
 
    - **Custom Installation**:
      - **Qt 6.7.2**
@@ -40,8 +48,8 @@
 
 ![QT Custom Installation](../assets/plasma6-qt-custom-installation.png)
 
-### 2. Update PATH and Environment Variables
-- Add this to your `~/.bashrc` (or `~/.zshrc`), swapping `<qt-version>` with your version:
+### 3. Update PATH and Environment Variables
+- Add this to your `~/.bashrc` (or `~/.zshrc`), replacing `<qt-version>` with your version:
   ```bash
   echo 'export QT6DIR=/opt/qt/<qt-version>/gcc_64' >> ~/.bashrc
   echo 'export QT_SELECT=default' >> ~/.bashrc
@@ -52,25 +60,25 @@
   source ~/.bashrc
   ```
 
-### 3. Clone and Setup `kdesrc-build`
-- Clone the `kdesrc-build` repository:
+### 4. Clone and Setup `kdesrc-build`
+- Clone the `kdesrc-build` repository into your home directory:
   ```bash
-  git clone https://invent.kde.org/sdk/kdesrc-build.git
-  cd kdesrc-build
+  git clone https://invent.kde.org/sdk/kdesrc-build.git ~/kdesrc-build
+  cd ~/kdesrc-build
   chmod +x kdesrc-build
   ```
 
-### 4. Create the Installation Directory
+### 5. Create the Installation Directory
 - Create the installation directory:
   ```bash
   sudo mkdir /opt/plasma6
   sudo chown -R $USER:$USER /opt/plasma6
   ```
 
-### 5. Configure `kdesrc-buildrc`
-- Overwrite the contents of `~/.config/kdesrc-buildrc`:
+### 6. Configure `kdesrc-buildrc`
+- Create or overwrite the contents of `~/kdesrc-build/kdesrc-buildrc`:
   ```bash
-  cat << EOF > ~/.config/kdesrc-buildrc
+  cat << EOF > ~/kdesrc-build/kdesrc-buildrc
   global
       branch-group kf6-qt6
       include-dependencies true
@@ -90,19 +98,38 @@
   end global
 
   include \${module-definitions-dir}/kf6-qt6.ksb
+
+  module plasma-desktop
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+
+  module kwin
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+
+  module plasma-workspace
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+
+  module plasma-integration
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+
+  module libksysguard
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+
+  module breeze
+      cmake-options -DBUILD_WITH_QT6=ON
+  end module
+  
   EOF
   ```
 
-### 6. Install Required Packages
-- Install necessary build dependencies:
-  ```bash
-  sudo apt install cmake extra-cmake-modules
-  ```
-
 ### 7. Build KDE
-- Run the build process:
+- Run the build process, specifying the location of the `kdesrc-buildrc` file:
   ```bash
-  ./kdesrc-build
+  ./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc
   ```
 
 ### 8. Create a Startup Script
@@ -140,6 +167,3 @@
 
 ### 10. Start KDE 6
 - Log out and select Plasma 6 from SDDM.
-
-
-
