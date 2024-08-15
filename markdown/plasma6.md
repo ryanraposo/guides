@@ -128,11 +128,11 @@
 
 ### 7. Build KDE
 
-Run the build process, specifying the location of the `kdesrc-buildrc` file:
+- Run the build process, specifying the location of the `kdesrc-buildrc` file:
 
-```bash
-./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc
-```
+  ```bash
+  ./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc
+  ```
 
 - If/when the build fails on a module, identify the failure in the output...
 
@@ -155,43 +155,43 @@ Run the build process, specifying the location of the `kdesrc-buildrc` file:
 
 - ...print the log and find the CMake error:
 
-```bash
-> cat /home/ryan/kde/log/2024-08-15-09/breeze/cmake.log
-...
--- Could NOT find KF5Kirigami2 (missing: KF5Kirigami2_DIR)
--- Could NOT find KF5Kirigami2: found neither KF5Kirigami2Config.cmake nor kf5kirigami2-config.cmake 
-CMake Error at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
-Could NOT find KF5 (missing: Kirigami2) (Required is at least version
-"5.102.0")
-...
-```
+  ```bash
+  > cat /home/ryan/kde/log/2024-08-15-09/breeze/cmake.log
+  ...
+  -- Could NOT find KF5Kirigami2 (missing: KF5Kirigami2_DIR)
+  -- Could NOT find KF5Kirigami2: found neither KF5Kirigami2Config.cmake nor kf5kirigami2-config.cmake 
+  CMake Error at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find KF5 (missing: Kirigami2) (Required is at least version
+  "5.102.0")
+  ...
+  ```
 
 - Find the missing package:
 
-```bash
-> sudo apt search Kirigami2
-...
-kirigami2-dev/noble,noble 5.115.0-0ubuntu6 amd64
-  set of QtQuick components targeted for mobile use
+  ```bash
+  > sudo apt search Kirigami2
+  ...
+  kirigami2-dev/noble,noble 5.115.0-0ubuntu6 amd64
+    set of QtQuick components targeted for mobile use
 
-libkf5kirigami2-5/noble,noble,now 5.115.0-0ubuntu6 amd64 [installed,automatic]
-  set of QtQuick components targeted for mobile use
+  libkf5kirigami2-5/noble,noble,now 5.115.0-0ubuntu6 amd64 [installed,automatic]
+    set of QtQuick components targeted for mobile use
 
-libkf5kirigami2-doc/noble,noble,noble,noble 5.115.0-0ubuntu6 all
-  set of QtQuick components targeted for mobile use (documentation)
+  libkf5kirigami2-doc/noble,noble,noble,noble 5.115.0-0ubuntu6 all
+    set of QtQuick components targeted for mobile use (documentation)
 
-qml-module-org-kde-kirigami2/noble,noble,now 5.115.0-0ubuntu6 amd64 [installed,automatic]
-  set of QtQuick components targeted for mobile use
+  qml-module-org-kde-kirigami2/noble,noble,now 5.115.0-0ubuntu6 amd64 [installed,automatic]
+    set of QtQuick components targeted for mobile use
 
-spacebar/noble,noble 23.01.0-1build4 amd64
-  SMS/MMS application for Plasma Mobile
-```
+  spacebar/noble,noble 23.01.0-1build4 amd64
+    SMS/MMS application for Plasma Mobile
+  ```
 
 - Install the package:
 
-```bash
- `sudo apt install kirigami2-dev` # usually dev or core
-```
+  ```bash
+  `sudo apt install kirigami2-dev` # usually dev or core
+  ```
 
 - Resume building:
 
