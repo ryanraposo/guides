@@ -1,3 +1,5 @@
+Here’s an updated version with consistent headings, and I’ve added the subsections of “Build KDE” to the main Table of Contents.
+
 ## plasma6
 
 > This guide assumes Ubuntu 24.04
@@ -16,8 +18,16 @@
 3. [Update PATH and Environment Variables](#3-update-path-and-environment-variables)
 4. [Clone and Setup `kdesrc-build`](#4-clone-and-setup-kdesrc-build)
 5. [Create the Installation Directory](#5-create-the-installation-directory)
-6. [Configure `kdesrc-buildrc`](#6-configure-kdesrc-buildrc)
-7. [Build KDE](#7-build-kde)
+6. [Build KDE](#6-build-kde)
+   - [Explained](#explained)
+   - [Optional Modules](#optional-modules)
+   - [Final Command](#final-command)
+7. [Troubleshooting](#7-troubleshooting)
+   - [Identify the Build Failure](#identify-the-build-failure)
+   - [Note the CMake Errors](#note-the-cmake-errors)
+   - [Find Missing Packages](#find-missing-packages)
+   - [Resume Building](#resume-building)
+   - [Ungoof Until It Works](#ungoof-until-it-works)
 8. [Create a Startup Script](#8-create-a-startup-script)
 9. [Add a Desktop Entry to SDDM](#9-add-a-desktop-entry-to-sddm)
 10. [Start KDE 6](#10-start-kde-6)
@@ -82,68 +92,69 @@
   sudo chown -R $USER:$USER /opt/plasma6
   ```
 
-### 6. Configure `kdesrc-buildrc`
+### 6. Build KDE
 
-- Create or overwrite the contents of `~/kdesrc-build/kdesrc-buildrc`:
-
-  ```bash
-  cat << EOF > ~/kdesrc-build/kdesrc-buildrc
-  global
-      branch-group kf6-qt6
-      include-dependencies true
-      source-dir ~/kde/src
-      build-dir ~/kde/build
-      install-dir /opt/plasma6
-      log-dir ~/kde/log
-      cmake-options -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      num-cores 12
-      num-cores-low-mem 7
-      stop-on-failure true
-      directory-layout flat
-      cmake-generator Ninja
-      compile-commands-linking true
-      compile-commands-export true
-      generate-vscode-project-config false
-  end global
-
-  include \${module-definitions-dir}/kf6-qt6.ksb
-
-  module plasma-desktop
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-
-  module kwin
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-
-  module plasma-workspace
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-
-  module plasma-integration
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-
-  module libksysguard
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-
-  module breeze
-      cmake-options -DBUILD_WITH_QT6=ON
-  end module
-  
-  EOF
-  ```
-
-### 7. Build KDE
-
-- Run the build process, specifying the location of the `kdesrc-buildrc` file:
+Here is the easiest way to do it:
 
   ```bash
-  ./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc
+  ./kdesrc-build\
+    workspace    \
+    yakuake       \           
+  --ignore-modules \
+    konsole         \
   ```
 
-- If/when the build fails on a module, identify the failure in the output...
+#### Explained
+
+`workspace` builds the core KDE Plasma 6 components.
+
+- plasma-desktop
+- kwin
+- dolphin
+- kdeplasma-addons
+- kde-cli-tools
+- plasma-nm
+- plasma-pa
+- discover
+- kate
+- baloo
+- spectacle
+- kdeconnect
+- ~~konsole~~
+- **yakuake**
+
+It isn't installed with `workspace`, but I want `Yakuake` so I add it below and use `--ignore-modules` to drop `Konsole`.
+
+#### Optional Modules
+
+These can be included as shown in the command above:
+
+- **krunner**: Powerful search and command execution from the desktop.
+- **systemsettings**: The main configuration interface for KDE.
+- **ark**: An archive manager for compressing/decompressing files.
+- **gwenview**: A lightweight image viewer.
+- **okular**: A versatile document viewer.
+- **ksysguard**: A system monitor for real-time performance data.
+
+#### Final Command:
+
+```bash
+./kdesrc-build workspace #              
+  yakuake            #     \ \ 
+  krunner           #    \ 
+  systemsettings  #       \. --.  'i love the rain'\
+  ark                 #  /       \        \
+  gwenview          #   \\(👁️👄👁️) 'beating down on my neck' \
+  ksysguard         #    \    /  \             \
+  --ignore-modules #     | \ |   'and kde' \          
+  konsole     #     \   /\   \
+``` 
+
+### 7. Troubleshooting
+
+The build process is easy. If/when the build fails on a module...
+
+#### Identify the build failure:
 
   ```bash
   OUTPUT:
@@ -162,7 +173,7 @@
 
   ```
 
-- ...print the log and find the CMake error:
+#### Note the CMake Errors:
 
   ```bash
   > cat /home/ryan/kde/log/2024-08-15-09/breeze/cmake.log
@@ -175,7 +186,7 @@
   ...
   ```
 
-- Find the missing package:
+#### Find Missing Packages:
 
   ```bash
   > sudo apt search Kirigami2
@@ -196,16 +207,20 @@
     SMS/MMS application for Plasma Mobile
   ```
 
-- Install the package:
-
   ```bash
-  `sudo apt install kirigami2-dev` # usually dev or core
+  > sudo apt install kirigami2-dev
   ```
 
-- Resume building from the last module:
+#### Resume Building:
 
   ```bash
-  ./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc --no-src --resume-from breeze 
+  ./kdesrc-build --resume
+  ```
+
+#### Ungoof:
+
+  ```bash
+  ./kdesrc-build --refresh-build
   ```
 
 ### 8. Create a Startup Script
@@ -231,7 +246,9 @@
 
 ### 9. Add a Desktop Entry to SDDM
 
-- Create a Wayland session entry:
+- Create a Wayland
+
+ session entry:
 
   ```bash
   sudo touch /usr/share/wayland-sessions/plasmawayland6.desktop
