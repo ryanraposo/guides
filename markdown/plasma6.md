@@ -190,7 +190,7 @@ spacebar/noble,noble 23.01.0-1build4 amd64
 - Install the package:
 
 ```bash
- `sudo apt install kirigami2-dev` (usually dev or core) and resume building:
+ `sudo apt install kirigami2-dev` # usually dev or core
 ```
 
 - Resume building:
