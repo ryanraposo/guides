@@ -207,6 +207,7 @@
 
 ### 8. Create a Startup Script
 - Create `/opt/plasma6/bin/start-kde6`:
+
   ```bash
   #!/usr/bin/env bash
   source $USER/.config/kde-env-master.sh
@@ -217,18 +218,23 @@
     exec startplasma-wayland
   fi
   ```
+
 - Make it executable:
+
   ```bash
   chmod +x /opt/plasma6/bin/start-kde6
   ```
 
 ### 9. Add a Desktop Entry to SDDM
 - Create a Wayland session entry:
+
   ```bash
   sudo touch /usr/share/wayland-sessions/plasmawayland6.desktop
   sudo chown $USER /usr/share/wayland-sessions/plasmawayland6.desktop
   ```
+
 - Add this content:
+
   ```ini
   [Desktop Entry]
   Exec=/opt/plasma6/bin/start-kde6
@@ -239,4 +245,5 @@
   ```
 
 ### 10. Start KDE 6
+
 - Log out and select Plasma 6 from SDDM.
