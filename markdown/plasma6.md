@@ -202,10 +202,10 @@
   `sudo apt install kirigami2-dev` # usually dev or core
   ```
 
-- Resume building:
+- Resume building from the last module:
 
   ```bash
-  ./kdesrc-build --rc-file=~/repos/kdesrc-build/kdesrc-buildrc --resume --no-src
+  ./kdesrc-build --rc-file=~/kdesrc-build/kdesrc-buildrc --no-src --resume-from breeze 
   ```
 
 ### 8. Create a Startup Script
