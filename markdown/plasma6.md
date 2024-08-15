@@ -10,6 +10,7 @@
 ```
 
 ### Table of Contents
+
 1. [Install Required Packages](#1-install-required-packages)
 2. [Install Qt 6.7.2](#2-install-qt-672)
 3. [Update PATH and Environment Variables](#3-update-path-and-environment-variables)
@@ -50,7 +51,9 @@
 ![QT Custom Installation](../assets/plasma6-qt-custom-installation.png)
 
 ### 3. Update PATH and Environment Variables
+
 - Add this to your `~/.bashrc` (or `~/.zshrc`), replacing `<qt-version>` with your version:
+
   ```bash
   echo 'export QT6DIR=/opt/qt/<qt-version>/gcc_64' >> ~/.bashrc
   echo 'export QT_SELECT=default' >> ~/.bashrc
@@ -206,6 +209,7 @@
   ```
 
 ### 8. Create a Startup Script
+
 - Create `/opt/plasma6/bin/start-kde6`:
 
   ```bash
@@ -226,6 +230,7 @@
   ```
 
 ### 9. Add a Desktop Entry to SDDM
+
 - Create a Wayland session entry:
 
   ```bash
