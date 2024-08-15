@@ -1,3 +1,5 @@
+[guides](https://github.io/ryanraposo/guides)
+
 1. [For Dad](/markdown/fordad.md)
 2. [Throughput](/markdown/throughput.md)
 3. [ShotCut (Windows)](/markdown/shotcut-windows.md)
