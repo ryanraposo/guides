@@ -96,13 +96,17 @@ Here’s an updated version with consistent headings, and I’ve added the subse
 
 Here is the easiest way to do it:
 
-  ```bash
-  ./kdesrc-build\
-    workspace    \
-    yakuake       \           
-  --ignore-modules \
-    konsole         \
-  ```
+```bash
+./kdesrc-build workspace #              
+  yakuake            #     \ \ 
+  krunner           #    \ 
+  systemsettings  #       \. --.  'i love the rain'\
+  ark                 #  /       \        \
+  gwenview          #   \\(👁️👄👁️) 'beating down on my neck' \
+  ksysguard         #    \     /  \             \
+  --ignore-modules #     | \ |   'and kde' \          
+  konsole     #     \   /\   \
+``` 
 
 #### Explained
 
@@ -139,16 +143,18 @@ These can be included as shown in the command above:
 #### Final Command:
 
 ```bash
-./kdesrc-build workspace #              
-  yakuake            #     \ \ 
-  krunner           #    \ 
-  systemsettings  #       \. --.  'i love the rain'\
-  ark                 #  /       \        \
-  gwenview          #   \\(👁️👄👁️) 'beating down on my neck' \
-  ksysguard         #    \    /  \             \
-  --ignore-modules #     | \ |   'and kde' \          
-  konsole     #     \   /\   \
-``` 
+kdesrc-build workspace              
+  yakuake #      \         \ \         \
+  krunner #         \     \  .      \
+  systemsettings #         .v _  'i love the rain'\
+  ark #     \       \   \      ^      \
+  gwenview #             |(👁️👄👁️  'beating down on my neck'\ 
+  ksysguard #    \_  ___ \     j___+^+______        \
+  --ignore-modules #   \ |    /   'and kde'  )        
+  konsole #  ==========+v+================= ^              
+  --install-to=/opt/plasma6 #              /_
+  --qt-install-dir=/opt/qt #    ___ rrxCGPT|^
+```
 
 ### 7. Troubleshooting
 
@@ -269,3 +275,12 @@ The build process is easy. If/when the build fails on a module...
 ### 10. Start KDE 6
 
 - Log out and select Plasma 6 from SDDM.
+
+```bash
+  \.'\_    \        \
+/  _  _ \        \  \
+\  👁️👄👁️ 'aw' \
+ |      /  \     'aw'      \
+ R\    _R \  'shimbucktoo' \          
+/\\\  //\    \                'doesn't even do anything'
+```
