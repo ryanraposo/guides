@@ -26,7 +26,7 @@
 - Install necessary build dependencies:
   ```bash
   sudo apt update
-  sudo apt install cmake extra-cmake-modules git build-essential libsecret-1-dev xapian-tools qtkeychain-qt6-dev libqt6keychain1
+  sudo apt install cmake extra-cmake-modules git build-essential libsecret-1-dev libxapian-dev qtkeychain-qt6-dev libqt6keychain1 libsasl2-dev kirigami2-dev
   ```
 
 ### 2. Install Qt 6.7.2
