@@ -175,17 +175,14 @@ These can be included in the same way:
 #### Final Command
 
   ```bash
-  kde-builder workspace `# ` \          
+  kde-builder workspace `#            rrxCGPT` \          
     yakuake `#      \\         \\ \\         \\` \
     krunner `#         \\     \\  .      \\` \
     systemsettings `#         .v _  'i love the rain'\\` \
     ark `#     \\       \\   \\      ^      \\` \
     gwenview `#              |(👁️👄👁️  'beating down on my neck'\\` \
     ksysguard `#    \\_  ___ \\     j___+^+______        \\` \
-    --ignore-modules `#   \\ |    /   'and kde'  )        ` \
-    konsole `#  ==========+v+================= ^ ` \              
-    --install-to=/opt/plasma6 `#              /_` \
-    --qt-install-dir=/opt/qt `#    ___ rrxCGPT|^`
+    --ignore-modules=konsole `#    /   'and kde'  )        `
   ```
 
 ### Troubleshooting
