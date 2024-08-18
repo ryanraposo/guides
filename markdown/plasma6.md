@@ -1,36 +1,27 @@
-## plasma6
+<!-- TOC -->
 
-> This guide assumes Ubuntu 24.04
+- [Install Required Packages](#install-required-packages)
+- [Install Qt 6.7.2](#install-qt-672)
+- [Update PATH and Environment Variables](#update-path-and-environment-variables)
+- [Create the Installation Directory](#create-the-installation-directory)
+- [Setup kde-builder](#setup-kde-builder)
+- [Build KDE](#build-kde)
+    - [Explained](#explained)
+    - [Optional Modules](#optional-modules)
+    - [Final Command](#final-command)
+- [Troubleshooting](#troubleshooting)
+    - [Identify the build failure](#identify-the-build-failure)
+    - [Note the CMake Errors](#note-the-cmake-errors)
+    - [Find Missing Packages](#find-missing-packages)
+    - [Resume Building](#resume-building)
+    - [Ungoof](#ungoof)
+    - [Unable to find stylesheets](#unable-to-find-stylesheets)
+- [Start KDE 6](#start-kde-6)
 
-```
-     .--.  
-    /    \   'why does 6 come after 5?'
-   (👁️👄👁️)           
-    \    /     'because kde plasma 6'
-```
+<!-- /TOC -->
 
-### Table of Contents
 
-1. [Install Required Packages](#1-install-required-packages)
-2. [Install Qt 6.7.2](#2-install-qt-672)
-3. [Update PATH and Environment Variables](#3-update-path-and-environment-variables)
-4. [Clone and Setup `kdesrc-build`](#4-clone-and-setup-kdesrc-build)
-5. [Create the Installation Directory](#5-create-the-installation-directory)
-6. [Build KDE](#6-build-kde)
-   - [Explained](#explained)
-   - [Optional Modules](#optional-modules)
-   - [Final Command](#final-command)
-7. [Troubleshooting](#7-troubleshooting)
-   - [Identify the Build Failure](#identify-the-build-failure)
-   - [Note the CMake Errors](#note-the-cmake-errors)
-   - [Find Missing Packages](#find-missing-packages)
-   - [Resume Building](#resume-building)
-   - [Ungoof Until It Works](#ungoof-until-it-works)
-8. [Create a Startup Script](#8-create-a-startup-script)
-9. [Add a Desktop Entry to SDDM](#9-add-a-desktop-entry-to-sddm)
-10. [Start KDE 6](#10-start-kde-6)
-
-### 1. Install Required Packages
+### Install Required Packages
 
 - Install necessary build dependencies:
 
@@ -39,7 +30,7 @@
   sudo apt install cmake extra-cmake-modules git build-essential libsecret-1-dev libxapian-dev qtkeychain-qt6-dev libqt6keychain1 libsasl2-dev kirigami2-dev xcb libxcb-xinput-dev libxcb-dri3-dev libdisplay-info-dev
   ```
 
-### 2. Install Qt 6.7.2
+### Install Qt 6.7.2
 
 1. **Remove Existing Qt Installation** (If Needed):
    - If you need to remove an old Qt installation, run:
@@ -58,7 +49,7 @@
 
 ![QT Custom Installation](../assets/plasma6-qt-custom-installation.png)
 
-### 3. Update PATH and Environment Variables
+### Update PATH and Environment Variables
 
 - Add this to your `~/.bashrc` (or `~/.zshrc`), replacing `<qt-version>` with your version:
 
@@ -72,17 +63,7 @@
   source ~/.bashrc
   ```
 
-### 4. Clone and Setup `kdesrc-build`
-
-- Clone the `kdesrc-build` repository into your home directory:
-
-  ```bash
-  git clone https://invent.kde.org/sdk/kdesrc-build.git ~/kdesrc-build
-  cd ~/kdesrc-build
-  chmod +x kdesrc-build
-  ```
-
-### 5. Create the Installation Directory
+### Create the Installation Directory
 
 - Create the installation directory:
 
@@ -91,21 +72,73 @@
   sudo chown -R $USER:$USER /opt/plasma6
   ```
 
-### 6. Build KDE
+### Setup `kde-builder`
 
-Here is the easiest way to do it:
+  ```bash
+  cd ~
+  curl 'https://invent.kde.org/sdk/kde-builder/-/raw/master/scripts/initial_setup.sh?ref_type=heads' > initial_setup.sh
+  bash initial_setup.sh
+  ```
 
-```bash
-./kdesrc-build workspace #              
-  yakuake            #     \ \ 
-  krunner           #    \ 
-  systemsettings  #       \. --.  'i love the rain'\
-  ark                 #  /       \        \
-  gwenview          #   \\(👁️👄👁️) 'beating down on my neck' \
-  ksysguard         #    \     /  \             \
-  --ignore-modules #     | \ |   'and kde' \          
-  konsole     #     \   /\   \
-``` 
+### Build KDE
+
+Here is the easiest way:
+
+- Create/modify `~/.config/kdesrc-buildrc`:
+
+  ```bash
+  global
+      branch-group kf6-qt6
+
+      include-dependencies true
+
+      source-dir ~/kde/src  # Directory for downloaded source code
+      build-dir ~/kde/build  # Directory to build KDE into before installing
+      install-dir /opt/plasma6  # Directory to install KDE software into
+      qt-install-dir /opt/qt # Directory to install Qt if kde-builder supplies it
+      log-dir ~/kde/log  # Directory to write logs into
+
+      cmake-options -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_WITH_QT6=ON
+
+      num-cores 12
+                                              
+      num-cores-low-mem 7
+
+      install-login-session true
+
+      stop-on-failure true
+
+      directory-layout flat
+
+      cmake-generator Ninja
+
+      compile-commands-linking true
+      compile-commands-export true
+
+      generate-clion-project-config false
+      generate-vscode-project-config false
+      generate-qtcreator-project-config false
+
+      git-repository-base kde-git kde:
+
+  end global
+
+  include ${module-definitions-dir}/kf6-qt6.ksb
+  ```
+
+- Run this command
+
+  ```bash
+  kde-builder workspace `# ` \
+    yakuake         `#     \\ \\` \
+    krunner      `#      \\ ` \
+    systemsettings `#\        \\.--.  'i love the rain'\\` \
+    ark                `#\   /       \\        \\ ` \
+    gwenview         `#\    \\(👁️👄👁️) 'beating down on my neck' \\` \
+    ksysguard       `#\     \\     /  \\             \\` \
+  --ignore-modules=konsole `#\\   |   'and kde' \\` \
+    konsole    `#     \\    /\   \\`
+  ```
 
 #### Explained
 
@@ -139,27 +172,27 @@ These can be included in the same way:
 - **okular**: A versatile document viewer.
 - **ksysguard**: A system monitor for real-time performance data.
 
-#### Final Command:
+#### Final Command
 
-```bash
-kdesrc-build workspace              
-  yakuake #      \         \ \         \
-  krunner #         \     \  .      \
-  systemsettings #         .v _  'i love the rain'\
-  ark #     \       \   \      ^      \
-  gwenview #             |(👁️👄👁️  'beating down on my neck'\ 
-  ksysguard #    \_  ___ \     j___+^+______        \
-  --ignore-modules #   \ |    /   'and kde'  )        
-  konsole #  ==========+v+================= ^              
-  --install-to=/opt/plasma6 #              /_
-  --qt-install-dir=/opt/qt #    ___ rrxCGPT|^
-```
+  ```bash
+  kde-builder workspace `# ` \          
+    yakuake `#      \\         \\ \\         \\` \
+    krunner `#         \\     \\  .      \\` \
+    systemsettings `#         .v _  'i love the rain'\\` \
+    ark `#     \\       \\   \\      ^      \\` \
+    gwenview `#              |(👁️👄👁️  'beating down on my neck'\\` \
+    ksysguard `#    \\_  ___ \\     j___+^+______        \\` \
+    --ignore-modules `#   \\ |    /   'and kde'  )        ` \
+    konsole `#  ==========+v+================= ^ ` \              
+    --install-to=/opt/plasma6 `#              /_` \
+    --qt-install-dir=/opt/qt `#    ___ rrxCGPT|^`
+  ```
 
-### 7. Troubleshooting
+### Troubleshooting
 
 The build process is easy. If/when the build fails on a module...
 
-#### Identify the build failure:
+#### Identify the build failure
 
   ```bash
   OUTPUT:
@@ -178,7 +211,7 @@ The build process is easy. If/when the build fails on a module...
 
   ```
 
-#### Note the CMake Errors:
+#### Note the CMake Errors
 
   ```bash
   > cat /home/ryan/kde/log/2024-08-15-09/breeze/cmake.log
@@ -191,7 +224,7 @@ The build process is easy. If/when the build fails on a module...
   ...
   ```
 
-#### Find Missing Packages:
+#### Find Missing Packages
 
   ```bash
   > sudo apt search Kirigami2
@@ -216,62 +249,26 @@ The build process is easy. If/when the build fails on a module...
   > sudo apt install kirigami2-dev
   ```
 
-#### Resume Building:
+#### Resume Building
 
   ```bash
-  ./kdesrc-build --resume
+  kde-builder --resume
   ```
 
-#### Ungoof:
+#### Ungoof
 
   ```bash
-  ./kdesrc-build --refresh-build
+  kde-builder --refresh-build
   ```
 
-### 8. Create a Startup Script
+#### Unable to find stylesheets
 
-- Create `/opt/plasma6/bin/start-kde6`:
-
-  ```bash
-  #!/usr/bin/env bash
-  source $USER/.config/kde-env-master.sh
-
-  if [[ -z "$DBUS_SESSION_BUS_ADDRESS" ]]; then
-    exec dbus-run-session startplasma-wayland
-  else
-    exec startplasma-wayland
-  fi
-  ```
-
-- Make it executable:
-
-  ```bash
-  chmod +x /opt/plasma6/bin/start-kde6
-  ```
-
-### 9. Add a Desktop Entry to SDDM
-
-- Create a Wayland
-
- session entry:
-
-  ```bash
-  sudo touch /usr/share/wayland-sessions/plasmawayland6.desktop
-  sudo chown $USER /usr/share/wayland-sessions/plasmawayland6.desktop
-  ```
-
-- Add this content:
-
-  ```ini
-  [Desktop Entry]
-  Exec=/opt/plasma6/bin/start-kde6
-  DesktopNames=KDE6
-  Name=Plasma 6 (Wayland)
-  Comment=Plasma 6 by KDE
-  X-KDE-PluginInfo-Version=6.7.2
-  ```
-
-### 10. Start KDE 6
+- I noticed that some meson module builds failed, saying: `ERROR: Problem encountered: Unable to find Docbook XSL stylesheets for man pages`
+	- Make sure `docbook-xsl` is installed
+	- Find the modules docs directory (`~/kde/src/appstream/docs`, `~/kde/src/wayland/doc`, etc)
+	- Change the relevant web links in `docs/meson.build` to reference the local file. Should be: `/usr/share/xml/docbook/stylesheet/docbook-xsl/manpages/docbook.xsl` 
+  
+### Start KDE 6
 
 - Log out and select Plasma 6 from SDDM.
 
