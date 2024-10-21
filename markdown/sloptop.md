@@ -6,22 +6,22 @@
 
 Your workstation includes:
 
-	•	Ubuntu MATE: The main operating system you’ll use.
-	•	Whonix: A secure environment that uses Tor for anonymous internet access.
-	•	Whonix-Gateway: Connects to the Tor network.
-	•	Whonix-Workstation: Where you’ll browse and manage Litecoin securely.
-	•	Electrum-LTC Wallet: A secure wallet for your Litecoin transactions.
+•	Ubuntu MATE: The main operating system you’ll use.
+•	Whonix: A secure environment that uses Tor for anonymous internet access.
+•	Whonix-Gateway: Connects to the Tor network.
+•	Whonix-Workstation: Where you’ll browse and manage Litecoin securely.
+•	Electrum-LTC Wallet: A secure wallet for your Litecoin transactions.
 
 2. Getting Started
 
 First-Time Setup
 
-	1.	Power On the Laptop:
+1.	Power On the Laptop:
 	•	Press the power button to start.
-	2.	Log into Ubuntu MATE:
+2.	Log into Ubuntu MATE:
 	•	Username: user
 	•	Password: changeme
-	3.	Change Your Passwords:
+3.	Change Your Passwords:
 	•	For Ubuntu MATE:
 	•	Open the terminal (look for the black screen icon).
 	•	Type passwd and press Enter.
@@ -33,11 +33,11 @@ First-Time Setup
 
 Start the Secure Environment
 
-	1.	Open VirtualBox:
+1.	Open VirtualBox:
 	•	Click on the VirtualBox icon on the desktop or find it in the applications menu.
-	2.	Launch Whonix-Gateway:
+2.	Launch Whonix-Gateway:
 	•	In VirtualBox, double-click Whonix-Gateway.
-	3.	Launch Whonix-Workstation:
+3.	Launch Whonix-Workstation:
 	•	Once the gateway is running, double-click Whonix-Workstation.
 
 Logging into Whonix
@@ -53,9 +53,9 @@ Logging into Whonix
 
 Browsing Anonymously
 
-	1.	Open Tor Browser:
+1.	Open Tor Browser:
 	•	Inside Whonix-Workstation, click on the Tor Browser icon.
-	2.	Safe Browsing Tips:
+2.	Safe Browsing Tips:
 	•	Avoid logging into personal accounts.
 	•	Do not share personal information.
 	•	Use the browser for activities requiring anonymity.
@@ -64,14 +64,14 @@ Browsing Anonymously
 
 Setting Up Electrum-LTC Wallet
 
-	1.	Open Electrum-LTC:
+1.	Open Electrum-LTC:
 	•	Find it in the applications menu within Whonix-Workstation.
-	2.	Create a New Wallet:
+2.	Create a New Wallet:
 	•	Follow the on-screen instructions.
 	•	Backup Your Seed Phrase:
 	•	Write down the 12-word recovery phrase on paper.
 	•	Store it in a safe place, not on the computer.
-	3.	Set a Strong Password:
+3.	Set a Strong Password:
 	•	Use a mix of letters, numbers, and symbols.
 
 Making Transactions
@@ -112,18 +112,18 @@ Safe Internet Use
 
 7. Shutting Down Properly
 
-	1.	Close Applications:
+1.	Close Applications:
 	•	Exit all programs in Whonix-Workstation.
-	2.	Shut Down Whonix VMs:
+2.	Shut Down Whonix VMs:
 	•	In VirtualBox, select each VM and choose Close > Power off.
-	3.	Shut Down Ubuntu MATE:
+3.	Shut Down Ubuntu MATE:
 	•	Click the power icon and select Shut Down.
 
 8. Need Help?
 
-	•	Whonix Support: whonix.org/wiki/Support
-	•	Electrum-LTC Help: electrum-ltc.org
-	•	Tor Project: torproject.org
+•	Whonix Support: whonix.org/wiki/Support
+•	Electrum-LTC Help: electrum-ltc.org
+•	Tor Project: torproject.org
 
 Enjoy your secure and private computing experience! Stay safe and reach out if you have any questions.
 
@@ -133,28 +133,28 @@ Quick Reference Guide
 
 A. Initial Setup Steps
 
-	1.	Power On and Log In
+1.	Power On and Log In
 	•	Username: user
 	•	Password: changeme
 	•	Change Passwords Immediately using the passwd command in the terminal.
-	2.	Start Whonix Virtual Machines
+2.	Start Whonix Virtual Machines
 	•	Open VirtualBox.
 	•	Start Whonix-Gateway first.
 	•	Then start Whonix-Workstation.
-	3.	Update Systems
+3.	Update Systems
 	•	Ubuntu MATE:
 	•	Open Software Updater and install updates.
 	•	Whonix VMs:
 	•	You’ll be prompted to update upon startup.
 	•	Follow the on-screen instructions.
-	4.	Set Up Electrum-LTC Wallet
+4.	Set Up Electrum-LTC Wallet
 	•	Open Electrum-LTC in Whonix-Workstation.
 	•	Create a new wallet and backup your seed phrase.
 	•	Set a strong password.
 
 B. Good Practices
 
-	1.	Security
+1.	Security
 	•	Passwords:
 	•	Use strong, unique passwords.
 	•	Consider a password manager like KeePassXC.
@@ -162,17 +162,17 @@ B. Good Practices
 	•	Write it down and store it securely offline.
 	•	System Updates:
 	•	Regularly update all software.
-	2.	Privacy
+2.	Privacy
 	•	Separate Activities:
 	•	Use this workstation solely for private tasks.
 	•	Anonymity:
 	•	Do not reveal personal information while using Tor.
-	3.	Safe Browsing
+3.	Safe Browsing
 	•	Tor Browser:
 	•	Use for all internet activities within Whonix.
 	•	Avoid Plugins/Add-ons:
 	•	Stick to default browser settings.
-	4.	Physical Security
+4.	Physical Security
 	•	Secure Storage:
 	•	Keep the laptop in a safe place when not in use.
 	•	Trusted Networks:
