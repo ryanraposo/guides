@@ -1,8 +1,3 @@
-## setupi
-
-> This guide assumes Raspberry Pi w/ Ubuntu (https://ubuntu.com/download/raspberry-pi)
-
-```bash
 #!/bin/bash
 
 ###############################################################################
@@ -152,58 +147,3 @@ echo
 echo "   3. Test the key-based login:"
 echo "      ssh $NEW_USER@$STATIC_IP"
 echo
-```
-
-Bonus:
-
-```bash
-#!/bin/bash
-
-###############################################################################
-#                             🎨 XFCE SETUP SCRIPT 🎨                           
-###############################################################################
-# This script configures an Ubuntu system with XFCE4, LightDM, and multimedia 
-# codecs for a lightweight, fully-featured desktop environment.
-#
-# - Installs XFCE4 desktop environment and LightDM display manager.
-# - Installs multimedia codecs (restricted extras and GStreamer plugins).
-# - Configures LightDM to use XFCE as the default session.
-#
-# After running this script, a reboot is required to apply changes.
-#
-# 📘 Full guide and more details:
-# https://ryanraposo.github.io/guides/markdown/setupi.html
-#
-# 📂 To download the 'pivid' script directly and execute it:
-# wget https://ryanraposo.github.io/assets/pivid -O pivid
-# chmod +x pivid
-# ./pivid
-#
-###############################################################################
-
-# Update system and install required packages
-echo "🔄 Updating the system and installing XFCE4 desktop environment..."
-sudo apt update && sudo apt install -y \
-    xfce4 lightdm ubuntu-restricted-extras vlc \
-    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-ugly ffmpeg
-
-# Reconfigure LightDM to set it as the default display manager
-echo "⚙️ Configuring LightDM as the default display manager..."
-sudo dpkg-reconfigure lightdm
-
-# Configure LightDM to use XFCE as the default session
-echo "🖌️ Setting XFCE as the default session in LightDM..."
-sudo bash -c 'cat <<EOF > /etc/lightdm/lightdm.conf
-[Seat:*]
-user-session=xfce
-EOF'
-
-# Final instructions
-echo
-echo "🎉 Installation complete! Please reboot your system to start using XFCE."
-echo "🚀 To reboot now, run: sudo reboot"
-echo
-echo "💡 Once rebooted, log in and select the XFCE session if it's not already set."
-echo "==========================================="
-```
