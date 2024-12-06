@@ -11,3 +11,4 @@
 9. [last](/markdown/last.md)
 10. [plasma6](/markdown/plasma6.md)
 11. [kdecent](/markdown/kdecent.md)
+12. [setupi](/markdown/setupi.md)
