@@ -101,6 +101,7 @@ network:
   wifis:
     wlan0:
       addresses: [$STATIC_IP/24]
+      dhcp4: no
       routes:
         - to: 0.0.0.0/0
           via: $GATEWAY_IP
