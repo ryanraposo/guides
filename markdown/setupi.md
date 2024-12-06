@@ -26,10 +26,10 @@
 # sudo mkdir -p /mnt/sda
 #
 # 3. Mount the USB drive
-#sudo mount /dev/sda /mnt/sda
+# sudo mount /dev/sda /mnt/sda
 #
 # 4. Access it
-#cd /mnt/sda
+# cd /mnt/sda
 #
 ###############################################################################
 
