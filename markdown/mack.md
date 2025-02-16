@@ -23,7 +23,7 @@ while true; do
     sudo ifconfig $interface up
 
     # Wait for 2 seconds
-    sleep 2
+    sleep 5
 
     # Test the connection by pinging google.com
     if ping -c 1 google.com &> /dev/null; then
