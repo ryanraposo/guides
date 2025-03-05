@@ -1,3 +1,4 @@
+```bash
 #!/bin/bash
 
 ###############################################################################
@@ -23,11 +24,11 @@
 ###############################################################################
 
 # Update system and install required packages
-echo "🔄 Updating the system and installing XFCE4 desktop environment..."
+echo "🔄 Updating the system, installing XFCE4 desktop environment, video codecs..."
 sudo apt update && sudo apt install -y \
-    xfce4 lightdm ubuntu-restricted-extras vlc \
-    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-ugly ffmpeg
+    xfce4 lightdm ubuntu-restricted-extras vlc ffmpeg \
+    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
+    libavcodec-extra libavutil-dev libavformat-dev libswscale-dev libavfilter-dev libavdevice-dev 
 
 # Reconfigure LightDM to set it as the default display manager
 echo "⚙️ Configuring LightDM as the default display manager..."
@@ -47,3 +48,4 @@ echo "🚀 To reboot now, run: sudo reboot"
 echo
 echo "💡 Once rebooted, log in and select the XFCE session if it's not already set."
 echo "==========================================="
+```

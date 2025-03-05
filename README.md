@@ -1,14 +1,15 @@
-<!-- https://ryanraposo.github.io/guides/ -->
+f<!-- https://ryanraposo.github.io/guides/ -->
 
-1. [For Dad](/markdown/fordad.md)
-2. [Throughput](/markdown/throughput.md)
-3. [ShotCut (Windows)](/markdown/shotcut-windows.md)
-4. [ShotCut (Ubuntu)](/markdown/shotcut-ubuntu.md)
-5. [cuditbe](/markdown/cuditbe.md)
-6. [VLC Finesse](/markdown/vlc-finesse.md)
-7. [hubd](/markdown/hubd.md)
-8. [mack](/markdown/mack.md)
-9. [last](/markdown/last.md)
-10. [plasma6](/markdown/plasma6.md)
-11. [kdecent](/markdown/kdecent.md)
-12. [setupi](/markdown/setupi.md)
+1. [<a href="/markdown/fordad.md" title="Guidelines and setup instructions tailored for Dad’s tech needs.">For Dad</a>]
+2. [<a href="/markdown/throughput.md" title="Optimizing system and network throughput.">Throughput</a>]
+3. [<a href="/markdown/shotcut-windows.md" title="ShotCut setup and usage on Windows.">ShotCut (Windows)</a>]
+4. [<a href="/markdown/shotcut-ubuntu.md" title="Installing and configuring ShotCut on Ubuntu.">ShotCut (Ubuntu)</a>]
+5. [<a href="/markdown/cuditbe.md" title="Specific configurations and tweaks for cuditbe.">cuditbe</a>]
+6. [<a href="/markdown/vlc-finesse.md" title="Advanced VLC configurations and tips.">VLC Finesse</a>]
+7. [<a href="/markdown/hubd.md" title="Comprehensive guide for setting up and using hubd.">hubd</a>]
+8. [<a href="/markdown/mack.md" title="Instructions and best practices for mack.">mack</a>]
+9. [<a href="/markdown/last.md" title="Final notes and considerations on various topics.">last</a>]
+10. [<a href="/markdown/plasma6.md" title="Guide for installing and configuring Plasma 6.">plasma6</a>]
+11. [<a href="/markdown/kdecent.md" title="Optimizing KDE settings for a better user experience.">kdecent</a>]
+12. [<a href="/markdown/setupi.md" title="Initial setup instructions for new installations.">setupi</a>]
+13. [<a href="/markdown/strempi.md" title="Setting up Stremio on Raspberry Pi.">strempi</a>]

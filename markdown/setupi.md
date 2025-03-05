@@ -100,32 +100,19 @@ echo "$NEW_USER:$NEW_USER_PASSWORD" | sudo chpasswd
 echo "Granting sudo privileges to '$NEW_USER'..."
 sudo usermod -aG sudo "$NEW_USER"
 
-# Configure WiFi with static IP
-echo "Configuring WiFi with static IP..."
-cat <<EOF | sudo tee /etc/netplan/99-wlan0-config.yaml
-network:
-  version: 2
-  renderer: NetworkManager
-  wifis:
-    wlan0:
-      addresses: [$STATIC_IP/24]
-      dhcp4: no
-      routes:
-        - to: 0.0.0.0/0
-          via: $GATEWAY_IP
-      nameservers:
-        addresses: [$DNS_SERVERS]
-      access-points:
-        "$WIFI_SSID":
-          password: "$WIFI_PASSWORD"
-EOF
+# Install and activate NetworkManager
+echo "Installing and enabling NetworkManager..."
+sudo apt install --reinstall -y network-manager
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+sudo sh -c 'echo -e "\n[keyfile]\nunmanaged-devices=none" >> /etc/NetworkManager/NetworkManager.conf'
+sudo systemctl restart NetworkManager
 
-# Fix permissions for netplan file
-sudo chmod 600 /etc/netplan/99-wlan0-config.yaml
-
-# Apply network configuration
-echo "Applying network configuration..."
-sudo netplan apply
+# Configure WiFi 
+echo "Configuring WiFi with nmcli..."
+nmcli dev wifi connect "$WIFI_SSID" password "$WIFI_PASSWORD" ifname wlan0
+nmcli con modify "$WIFI_SSID" ipv4.addresses "$STATIC_IP/24" ipv4.gateway "$GATEWAY_IP" ipv4.dns "$DNS_SERVERS" ipv4.method manual
+nmcli con up "$WIFI_SSID"
 
 # Enable SSH with password authentication
 echo "Enabling SSH with password authentication..."
@@ -182,11 +169,11 @@ Bonus:
 ###############################################################################
 
 # Update system and install required packages
-echo "🔄 Updating the system and installing XFCE4 desktop environment..."
+echo "🔄 Updating the system, installing XFCE4 desktop environment, video codecs..."
 sudo apt update && sudo apt install -y \
-    xfce4 lightdm ubuntu-restricted-extras vlc \
-    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-ugly ffmpeg
+    xfce4 lightdm ubuntu-restricted-extras vlc ffmpeg \
+    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
+    libavcodec-extra libavutil-dev libavformat-dev libswscale-dev libavfilter-dev libavdevice-dev 
 
 # Reconfigure LightDM to set it as the default display manager
 echo "⚙️ Configuring LightDM as the default display manager..."
