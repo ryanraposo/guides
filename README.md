@@ -11,3 +11,4 @@
 9. [kdecent](/markdown/kdecent.md)
 10. [setupi](/markdown/setupi.md)
 11. [strempi](/markdown/strempi.md)
+12. [VR6 Pallete](/markdown/vr6pallete.md)
