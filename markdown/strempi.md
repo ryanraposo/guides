@@ -95,10 +95,16 @@ ln -sf $(which node) build/node
 
 ### Running Stremio
 
+Make it executable:
+
+```bash
+chmod +x stremio
+```
+
 Launch Stremio with:
 
 ```bash
-./build/stremio
+./stremio
 ```
 
 ### Troubleshooting
