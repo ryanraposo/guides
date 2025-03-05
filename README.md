@@ -14,7 +14,7 @@
 
 [^1]: Guidelines and setup instructions tailored for Dad’s tech needs.
 [^2]: Optimizing system and network throughput.
-[^3]: Specific configurations and tweaks for cuditbe.
+[^3]: Situating nvidia, cuda, cudNN on linux systems automagically.
 [^4]: Advanced VLC configurations and tips.
 [^5]: Comprehensive guide for setting up and using hubd.
 [^6]: Instructions and best practices for mack.
@@ -23,3 +23,7 @@
 [^9]: Optimizing KDE settings for a better user experience.
 [^10]: Initial setup instructions for new Pis.
 [^11]: Setting up Stremio on Raspberry Pi.
+
+<link rel="stylesheet" href="/_includes/scroll.css">
+<script src="/_includes/scroll.js"></script>
+
